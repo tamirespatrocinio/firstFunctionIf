@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - Desenvolver app de consulta eleitoral</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Pacifico&family=Special+Elite&display=swap');
+        
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 30px;
+            font-family: Oswald;
+        }
+
+        img{
+            object-fit: cover;
+            opacity: 0.9;
+            margin-top: 5rem;   
+            margin-bottom: 1rem;
+        }
+
+        button{
+            background-color: #d1d1d1;  
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.945);
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+            padding: 0.5rem;
+            margin-top: 4em;
+        }
+
+    </style>  
+
+    </head>
+    <body> 
+        <div id="brasil">
+            <img src="brasil.png" alt="" width="300" height="180">
+           <!--vetor criado por flatart - https://br.freepik.com/vetores/projeto -->
+        </div>
+        <p>Eleições: Saiba para quem o voto é facultativo ou obrigatório ao clicar no botão abaixo:</p>  
+        <button onclick="voto()">calcular</button>
+        <div id="retorno"></div>
+
+    <script>
+        function voto(){
+        var consultar = confirm("Gostaria de realizar uma consulta?")
+        var nome = window.prompt("Digite o seu nome:")
+        var idade = Number(window.prompt("Digite a sua idade: "))   
+
+        if(idade <= 15){
+            var msg = " ainda não pode votar."
+            window.document.getElementById("retorno").innerHTML = (`Sr(a). ${nome} ${msg}`)
+        }else if((idade >= 16) && (idade <= 17)){
+            var msg = " seu voto é facultativo."
+            window.document.getElementById("retorno").innerHTML = (`Sr(a). ${nome} ${msg}`)
+        }else if((idade >= 18) && (idade < 65)){
+            var msg = " seu voto é obrigatório."
+            window.document.getElementById("retorno").innerHTML = (`Sr(a). ${nome} ${msg}`)
+        }else{
+            var msg = " seu voto é facultativo"
+            window.document.getElementById("retorno").innerHTML = (`Sr(a). ${nome} ${msg}`)      
+        }
+    }
+    </script>
+</body>
+</html>
